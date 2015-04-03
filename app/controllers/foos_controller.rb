@@ -29,6 +29,7 @@ class FoosController < ApplicationController
   # POST /foos.json
   def create
     @foo = Foo.new(foo_params)
+    @foo.user = current_user
 
     respond_to do |format|
       if @foo.save
